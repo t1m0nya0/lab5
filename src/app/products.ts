@@ -1,111 +1,315 @@
+import {Category, categories} from "./categories";
+
 export interface Product {
-  image: string;
-  rating: number;
+  category: Category;
+  likes: number;
   id: number;
   name: string;
   price: number;
   description: string;
-  link: string;
+  rating: number;
+  img: string;
+  url: string;
 }
 
 export const products = [
   {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/h2e/h2d/32299950997534/apple-iphone-11-64gb-cernyj-1005115-1-Container.jpg',
-    rating: 2,
+    category: categories.filter(category => {
+      return category.name === 'Electronics';
+    })[0],
+    likes: 0,
     id: 1,
-    name: 'Phone 11',
-    price: 799,
-    description: 'A large phone with one of the best screens',
-    link: "tps://kaspi.kz/shop/p/apple-iphone-11-64gb-chernyi-1005115/"
+    name: 'Смартфон Apple iPhone 14 128Gb черный',
+    price: 327_320,
+    description: 'технология NFC, цвет: черный, тип экрана: OLED, Super Retina XDR display, диагональ: 6.1 дюйм, размер оперативной памяти: 6 ГБ, процессор: 6-ядерный Apple A15 Bionic, объем встроенной памяти: 128 ГБ, емкость аккумулятора: 3279 мАч',
+    rating: 4.3,
+    img: './assets/images/apple-iphone-14.jpg',
+    url: 'https://kaspi.kz/shop/p/apple-iphone-14-128gb-chernyi-106363023',
   },
   {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/h96/h3c/46392664227870/apple-iphone-13-128gb-belyj-102298420-1-Container.jpg',
+    category: categories.filter(category => {
+      return category.name === 'Electronics'
+    })[0],
+    likes: 0,
     id: 2,
-    name: 'Phone 13',
-    rating: 2.3,
-    price: 899,
-    description: 'A great phone with one of the best cameras',
-    link: "https://kaspi.kz/shop/p/apple-iphone-13-128gb-belyi-102298420/"
+    name: 'Клавиатура Rii mini i8 черный',
+    price: 2_435,
+    description: 'тип: оптическая, дизайн: мультимедийная, назначение: для настольного компьютера, тип подключения: беспроводная',
+    rating: 5.0,
+    img: './assets/images/rii-mini-i8.jpg',
+    url: 'https://kaspi.kz/shop/p/rii-mini-i8-chernyi-101174843'
   },
   {
-    image: "https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/hc6/hde/33201997971486/apple-iphone-xr-128gb-slim-box-cernyj-100692542-1-Container.jpg",
+    category: categories.filter(category => {
+      return category.name === 'Electronics'
+    })[0],
+    likes: 0,
     id: 3,
-    rating: 3.8,
-    name: 'Phone XR',
-    price: 699,
-    description: 'The best phone for his price',
-    link: "https://kaspi.kz/shop/p/apple-iphone-xr-128gb-slim-box-chernyi-100692542/"
+    name: 'Микрофон Union YS-63',
+    price: 3_950,
+    description: 'тип: динамический, конструкция: ручной, назначение: универсальный, тип подключения: беспроводной, радиосистема: Нет, разъемы: UЅВ, цвет: черный',
+    rating: 4.7,
+    img: './assets/images/union-ys-63.jpg',
+    url: 'https://kaspi.kz/shop/p/union-ys-63-102469810',
   },
-
   {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/h12/h12/46719106023454/apple-airpods-3-belyj-102667744-1.jpg',
+    category: categories.filter(category => {
+      return category.name === 'Furniture'
+    })[0],
+    likes: 0,
     id: 4,
+    name: 'Табурет Stoly Almaty',
+    price: 5_600,
+    description: 'тип: табурет, материал: дерево, обивка: отсутствует, жесткость сиденья: средняя, высота, см: 43, ширина, см: 32, глубина, см: 35, цвет: слоновая кость, страна: Казахстан',
     rating: 5.0,
-    name: 'Airpods 3 series',
-    price: 200,
-    description: 'The Apple-designed dynamic driver uses a dedicated amplifier to deliver incredible sound detail. rewind tracks, answer calls and end them. The headphone case is easily charged with the MagSafe charger.',
-    link: "https://kaspi.kz/shop/p/apple-airpods-3-belyi-102667744/",
+    img: './assets/images/stul-taburet-stoly-almaty.jpg',
+    url: 'https://kaspi.kz/shop/p/taburet-stoly-almaty-56005600-43x32x35-sm-slonovaja-kost--104030003'
   },
   {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/h8f/h1f/46659804725278/apple-airpods-pro-belyj-4804718-1-Container.jpg',
+    category: categories.filter(category => {
+      return category.name === 'Electronics'
+    })[0],
+    likes: 0,
     id: 5,
-    rating: 6.0,
-    name: 'Airpods pro',
-    price: 250,
-    description: 'AirPods Pro are unique headphones with Active Noise Canceling technology that continuously optimizes sound based on the shape of your ear and the position of the earbuds. They perfectly muffle external noise, so you can completely immerse yourself in the music. These are brand new headphones.',
-    link: "https://kaspi.kz/shop/p/apple-airpods-pro-belyi-4804718/",
-  },
-  {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/hd6/h5b/33271772446750/apple-macbook-air-2020-13-3-mgn93-serebristyj-100798912-1-Container.jpg',
-    id: 6,
-    rating: 7.0,
-    name: 'Macbook Air M1',
-    price: 1399,
-    description: 'Small chip. Big breakthrough The first chip designed specifically for the Mac. Amazingly, the Apple M1 system-on-a-chip packs 16 billion transistors and integrates a CPU, GPU, Neural Engine, I/O controllers, and a host of other components. The Apple M1 chip brings unique technologies to your Mac and delivers incredible performance combined with industry-leading power efficiency.',
-    link: "https://kaspi.kz/shop/p/apple-macbook-air-13-mgn93-serebristyi-100798912/",
-  },
-  {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/hd9/h66/33943966842910/apple-macbook-pro-13-m1-2020-custom-16-gb-1-tb-ssd-z11b-a2338-seryj-101029564-1.jpg',
-    id: 7,
+    name: 'Кофеварка CENTEK CT-1164',
+    price: 60_885,
+    description: 'тип: кофеварка, вид: рожковая, приготовление эспрессо: автоматическое, используемый кофе: молотый, возможность приготовления капучино, цвет: серебристый, черный',
     rating: 5.0,
-    name: 'Macbook Pro M1',
-    price: 1699,
-    description: 'The M1 chip has a built-in Neural Engine, a component that Apple first started adding to its A-series chips a few years ago. The Neural Engine is designed to accelerate machine learning tasks across the Mac for things like video analysis, voice recognition, image processing, and more',
-    link: "https://kaspi.kz/shop/p/apple-macbook-pro-13-m1-2020-custom-16-gb-1-tb-ssd-z11b-a2338-seryi-101029564/",
+    img: './assets/images/centek-ct-1164.jpg',
+    url: 'https://kaspi.kz/shop/p/kofevarka-centek-ct-1164-serebristyi-chernyi-100358682'
   },
   {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/h9f/h19/46638308622366/apple-watch-series-6-44mm-space-gray-aluminium-case-with-sport-band-m00h3gk-a-cernyj-100568498-1-Container.jpg',
+    category: categories.filter(category => {
+      return category.name === 'Electronics'
+    })[0],
+    likes: 0,
+    id: 6,
+    name: 'Мороженица Kitfort KT-1821',
+    price: 199_960,
+    description: 'тип: автоматическая, управление: электронное, объем чаши: 0.5 л, количество чаш: 1, материал чаши: металл, материал корпуса: металл, мощность: 120 Вт, цвет: серебристый',
+    rating: 5.0,
+    img: './assets/images/kitfort-kt-1821.jpg',
+    url: 'https://kaspi.kz/shop/p/kitfort-kt-1821-serebristyi-106729389'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Electronics'
+    })[0],
+    likes: 0,
+    id: 7,
+    name: 'Смарт-кольцо iQibla',
+    price: 16_487,
+    description: 'совместимость: iOS, размер кольца: 22 мм, беспроводные интерфейсы: Bluetooth, цвет: черный, модель: ZIKR1-22F',
+    rating: 5.0,
+    img: './assets/images/smart-kol-co-iqibla.jpg',
+    url: 'https://kaspi.kz/shop/p/smart-kol-tso-iqibla-zikr1-22f-chernyi-107070750'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Accessories'
+    })[0],
+    likes: 0,
     id: 8,
-    rating: 3.5,
-    name: 'Apple Watch 6 series ',
-    price: 499,
-    description: 'Retina Display: Now you dont have to raise your hand or touch the display to see the time or other information on the watch face. When you need to quickly check your time or fitness metrics - like when you are cycling, doing abs or sitting in a meeting for a long time - just glance at the display.',
-    link: "https://kaspi.kz/shop/p/apple-watch-series-6-44-mm-seryi-100568498/",
+    name: 'Чехол OEM для Samsung Galaxy Buds',
+    price: 2_409,
+    description: 'материал: силикон, пластик,особенности: карабин для переноски, ударопрочный,цвет: синий',
+    rating: 5.0,
+    img: './assets/images/oem-dlya-samsung-galaxy-buds-live-buds.jpg',
+    url: 'https://kaspi.kz/shop/p/oem-dlja-samsung-galaxy-buds-live-buds-pro-2-buds-2-buds-pro-sinii-107427005'
   },
   {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/hae/hcf/46553394249758/apple-watch-series-7-41-mm-cernyj-102582811-1.jpg',
+    category: categories.filter(category => {
+      return category.name === 'Electronics'
+    })[0],
+    likes: 0,
     id: 9,
-    rating: 8.0,
-    name: 'Apple Watch 7 series',
-    price: 599,
-    description: 'Series 7 is the most durable Apple Watch ever. Fundamental design changes were necessary because the challenge was to create an always-on, larger Retina display. Innovative solutions have been developed specifically for this. Then, with their help, it was possible to make the front glass of the display of ultra-high strength with protection against cracks.',
-    link: "https://kaspi.kz/shop/p/apple-watch-series-7-45-mm-chernyi-102582811/",
+    name: 'SSD Kingston SNV2S/1000G 1000 ГБ',
+    price: 33_187,
+    description: 'тип: SSD,форм-фактор: M.2,емкость: 1000 ГБ,интерфейсы: NVMe, PCI-Express 4.0',
+    rating: 5.0,
+    img: './assets/images/ssd-kingston.jpg',
+    url: 'https://kaspi.kz/shop/p/ssd-kingston-snv2s-1000g-1000-gb-107232387'
   },
   {
-    image: 'https://resources.cdn-kaspi.kz/shop/medias/sys_master/images/images/h1a/h69/63158968057886/apple-watch-series-8-41-mm-cernyj-106362847-1.jpg',
+    category: categories.filter(category => {
+      return category.name === 'Electronics'
+    })[0],
+    likes: 0,
     id: 10,
-    rating: 5.5,
-    name: 'Airpods 8 series',
-    price: 699,
-    description: 'Apple Watch Series 8 has an innovative new sensor that tracks your temperature while you sleep, so you can see changes over time. Cycle Tracking uses this data to provide a retrospective estimate of when you likely ovulated, which can be helpful for family planning.',
-    link: "https://kaspi.kz/shop/p/apple-watch-series-8-45-mm-aluminum-chernyi-106362847/",
+    name: 'Видеокарта GIGABYTE GeForce RTX 3060 Ti 8GB',
+    price: 298_990,
+    description: 'серия: GeForce RTX 30 Series, частота графического процессора: 1410, объем видеопамяти: 8 ГБ, тип видеопамяти: GDDR6, рекомендуемая мощность блока питания: 650 Вт',
+    rating: 5.0,
+    img: './assets/images/gigabyte-geforce-rtx-3060-ti.jpg',
+    url: 'https://kaspi.kz/shop/p/gigabyte-geforce-rtx-3060-ti-gv-n306tgaming-oc-8gd-2-0-8gb-102565473'
   },
-
+  {
+    category: categories.filter(category => {
+      return category.name === 'Furniture'
+    })[0],
+    likes: 0,
+    id: 11,
+    name: 'Кровать Mod Beds',
+    price: 157_600,
+    description: 'спальное место: 180x200 см ширина, см: 189 длина, см: 209',
+    rating: 5.0,
+    img: './assets/images/krovat-mod-beds.jpeg',
+    url: 'https://kaspi.kz/shop/p/mod-beds-vertikal-18756-180x200-sm-s-matrasom-seryi-106051867'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Furniture'
+    })[0],
+    likes: 0,
+    id: 12,
+    name: 'BULGYN угловой диван',
+    price: 93_999,
+    description: 'высота, см: 60; ширина, см: 284; глубина, см: 140',
+    rating: 5.0,
+    img: './assets/images/arman-company-komfort.jpeg',
+    url: 'https://kaspi.kz/shop/p/bulgyn-komfort-p36-divan-obivka-veljur-60x284x140-sm-sinii-102085936'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Furniture'
+    })[0],
+    likes: 0,
+    id: 13,
+    name: 'Ritmix компьютерный стол',
+    price: 202_566,
+    description: 'тип: трансформер; форма: прямоугольный; материал: металл, пластик; длина, см: 140; ширина, см: 70; высота, см: 70; цвет: черный; страна: Корея',
+    rating: 5.0,
+    img: './assets/images/komputernyj-stol-ritmix.jpeg',
+    url: 'https://kaspi.kz/shop/p/ritmix-tbl-140-chernyi-103003492'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Furniture'
+    })[0],
+    likes: 0,
+    id: 14,
+    name: 'Кухонный гарнитур Asyl Ui Dake',
+    price: 220_000,
+    description: 'тип: прямая; основной материал: ЛДСП; ширина гарнитура, см: 300; глубина гарнитура, см: 60; высота гарнитура, см: 85; цвет: белый; страна: Казахстан',
+    rating: 5.0,
+    img: './assets/images/asyl-ui-dake-brend.jpeg',
+    url: 'https://kaspi.kz/shop/p/asyl-ui-dake-300x60x85-ldsp-106405113'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Beauty products'
+    })[0],
+    likes: 0,
+    id: 15,
+    name: 'MEDI-PEEL Luxury 24K Gold Ampoule сыворотка 100 мл',
+    price: 4_349,
+    description: 'тип: сыворотка; действие: питание, ,увлажнение, ,повышение упругости; область нанесения: для лица; тип кожи: для всех типов; страна производства: Корея',
+    rating: 5.0,
+    img: './assets/images/medi-peel-luxury-24k-gold-ampoule.jpeg',
+    url: 'https://kaspi.kz/shop/p/medi-peel-luxury-24k-gold-ampoule-syvorotka-100-ml-100375778'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Beauty products'
+    })[0],
+    likes: 0,
+    id: 16,
+    name: 'Патчи MEDI-PEEL гидрогелевые Hyaluron Cica Peptide 9 для глаз 60 шт',
+    price: 4_901,
+    description: 'вид патчей: гидрогелевые; зона нанесения: для глаз; действие: увлажнение, ,от отеков, ,от темных кругов; тип кожи: для всех типов; страна производства: Корея',
+    rating: 5.0,
+    img: './assets/images/medi-peel-hyaluron-cica-peptide-9.jpeg',
+    url: 'https://kaspi.kz/shop/p/medi-peel-gidrogelevye-hyaluron-cica-peptide-9-dlja-glaz-60-sht-100378895'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Beauty products'
+    })[0],
+    likes: 0,
+    id: 17,
+    name: 'Vivienne Sabo Concealer Retouche 01 светло-розовый',
+    price: 2_530,
+    description: 'тип: консилер; назначение: для области вокруг глаз; текстура: кремовая; тип кожи: для всех типов; страна производства: Франция',
+    rating: 5.0,
+    img: './assets/images/vivienne-sabo-concealer-retouche-konsiler-01.jpeg',
+    url: 'https://kaspi.kz/shop/p/vivienne-sabo-concealer-retouche-01-svetlo-rozovyi-102000704'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Beauty products'
+    })[0],
+    likes: 0,
+    id: 18,
+    name: 'Batiste Cherry сухой шампунь 200 мл',
+    price: 2_820,
+    description: 'тип: шампунь; тип волос: светлые, темные; страна производства: Великобритания',
+    rating: 5.0,
+    img: './assets/images/batiste-cherry-sukhoi-shampun.jpeg',
+    url: 'https://kaspi.kz/shop/p/batiste-cherry-suhoi-shampun-200-ml-24200005'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Beauty products'
+    })[0],
+    likes: 0,
+    id: 19,
+    name: 'Boosh Cosmetics Миноксидил 10% лосьон 55 мл',
+    price: 12_159,
+    description: 'средство: бальзам; назначение: для бороды и усов; объем: 55 мл; тип волос: для всех типов; страна производства: Россия',
+    rating: 4.5,
+    img: './assets/images/boosh-cosmetics.jpeg',
+    url: 'https://kaspi.kz/shop/p/boosh-cosmetics-minoksidil-10-los-on-55-ml-102513333'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Accessories'
+    })[0],
+    likes: 0,
+    id: 20,
+    name: 'Стекло OEM Watch для Apple Watch 4',
+    price: 5_990,
+    description: 'тип: стекло; назначение: смарт-часы; совместимый бренд: Apple; совместимые модели: Watch 4; вид покрытия: глянцевое',
+    rating: 0.0,
+    img: './assets/images/steklo-oem-watch-dla-apple-watch-4.jpeg',
+    url: 'https://kaspi.kz/shop/p/steklo-oem-watch-dlja-apple-watch-4-40mm-105920439'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Accessories'
+    })[0],
+    likes: 0,
+    id: 21,
+    name: 'Наклейка для телефона Better Life SP951 60 шт',
+    price: 1_200,
+    description: 'количество штук в упаковке: 60; материал: пленка',
+    rating: 0.0,
+    img: './assets/images/better-life-sp951-60-sht.jpeg',
+    url: 'https://kaspi.kz/shop/p/better-life-sp951-60-sht-108908892'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Accessories'
+    })[0],
+    likes: 0,
+    id: 22,
+    name: 'Чехол Smart Case для Apple iPhone 13 прозрачный',
+    price: 226,
+    description: 'тип: накладка с защитой камеры; совместимый бренд: Apple; материал: силикон',
+    rating: 5.0,
+    img: './assets/images/prozracnyj-cehol-na-iphone-13.jpeg',
+    url: 'https://kaspi.kz/shop/p/smart-case-dlja-apple-iphone-13-prozrachnyi-106185651'
+  },
+  {
+    category: categories.filter(category => {
+      return category.name === 'Accessories'
+    })[0],
+    likes: 0,
+    id: 23,
+    name: 'Зарядное устройство Apple 20W USB-C Power Adapter белый',
+    price: 11_787,
+    description: 'тип: сетевая зарядка; количество подключаемых устройств: 1; быстрая зарядка: Да; разъем подключения: USB Type-C',
+    rating: 5.0,
+    img: './assets/images/apple-20w-usb-c-power-adapter.jpeg',
+    url: 'https://kaspi.kz/shop/p/apple-20w-usb-c-power-adapter-belyi-100984093'
+  },
 ];
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
